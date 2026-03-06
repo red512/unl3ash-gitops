@@ -1,0 +1,25 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: unl3ash
+  namespace: argo
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/red512/unl3ash-gitops
+    targetRevision: HEAD
+    path: helm/unl3ash-helm-chart
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: unl3ash
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true

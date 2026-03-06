@@ -1,0 +1,36 @@
+replicaCount: 1
+
+image:
+  repository: ""  # set to ECR URL from terraform output: ecr_repository_url
+  tag: ""         # set to sha-<commit> tag from publish workflow
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
+  requests:
+    memory: "128Mi"
+    cpu: "250m"
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+
+service:
+  name: unl3ash-service
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+namespace:
+  name: unl3ash
+
+serviceAccount:
+  name: unl3ash
+  iamRoleArn: ""  # set to the IRSA IAM role ARN: arn:aws:iam::<account-id>:role/<role-name>
+
+env:
+  BUCKET_NAME: ""  # required — name of the S3 bucket to check files in

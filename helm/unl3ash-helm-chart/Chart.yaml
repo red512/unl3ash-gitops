@@ -1,0 +1,4 @@
+apiVersion: v2
+name: unl3ash-chart
+description: A Helm chart for deploying the unl3ash S3 file checker service
+version: 0.1.0

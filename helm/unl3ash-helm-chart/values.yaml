@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ""  # set to ECR URL from terraform output: ecr_repository_url
+  repository: "532150070616.dkr.ecr.us-east-1.amazonaws.com/unl3ash"
   tag: ""         # set to sha-<commit> tag from publish workflow
   pullPolicy: IfNotPresent
 
@@ -30,7 +30,7 @@ namespace:
 
 serviceAccount:
   name: unl3ash
-  iamRoleArn: ""  # set to the IRSA IAM role ARN: arn:aws:iam::<account-id>:role/<role-name>
+  iamRoleArn: "arn:aws:iam::532150070616:role/unl3ash-s3-access"
 
 env:
-  BUCKET_NAME: ""  # required — name of the S3 bucket to check files in
+  BUCKET_NAME: "unl3ash-bucket"

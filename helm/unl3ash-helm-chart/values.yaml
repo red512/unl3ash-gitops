@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: "532150070616.dkr.ecr.us-east-1.amazonaws.com/unl3ash"
-  tag: "15c93ed"
+  tag: "4dc9af3"
   pullPolicy: Always
 
 resources:

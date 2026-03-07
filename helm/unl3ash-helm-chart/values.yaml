@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   repository: "532150070616.dkr.ecr.us-east-1.amazonaws.com/unl3ash"
-  tag: ""         # set to sha-<commit> tag from publish workflow
-  pullPolicy: IfNotPresent
+  tag: "latest"
+  pullPolicy: Always
 
 resources:
   limits:

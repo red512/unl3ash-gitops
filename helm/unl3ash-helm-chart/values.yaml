@@ -33,4 +33,4 @@ serviceAccount:
   iamRoleArn: ""  # set to the IRSA IAM role ARN: arn:aws:iam::<account-id>:role/<role-name>
 
 env:
-  BUCKET_NAME: ""  # required — name of the S3 bucket to check files in
+  BUCKET_NAME: "unl3ash-bucket"
